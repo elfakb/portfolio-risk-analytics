@@ -1,0 +1,30 @@
+data:
+  years: 5                  # lookback window
+  benchmark: "XU100.IS"     # BIST 100 index, used for Beta / Alpha
+  raw_dir: "data/raw"
+  processed_dir: "data/processed"
+
+analysis:
+  risk_free_rate: 0.37      # annual, ~ TCMB policy rate (update when it changes)
+  trading_days: 252
+  var_confidence: 0.95
+
+# Weights must sum to 1.0
+portfolio:
+  THYAO.IS: 0.25
+  ASELS.IS: 0.20
+  BIMAS.IS: 0.20
+  XU030.IS: 0.20            # BIST 30 index (ETF proxy)
+  GOLD_TRY: 0.15            # Gram gold in TL (built from GC=F and TRY=X)
+
+names:
+  THYAO.IS: "Stock A - THYAO"
+  ASELS.IS: "Stock B - ASELS"
+  BIMAS.IS: "Stock C - BIMAS"
+  XU030.IS: "Index - BIST 30"
+  GOLD_TRY: "Gram Gold (TL)"
+
+optimization:
+  n_random_portfolios: 5000
+  frontier_points: 50
+  seed: 42
